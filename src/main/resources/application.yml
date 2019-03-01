@@ -1,0 +1,21 @@
+  server:
+    port: 8089
+  eureka:
+    client:
+      service-url:
+        defaultZone: http://localhost:8888/eureka/ #注册中心地址
+      fetch-registry: false #是否拉取服务列表，这里我只提供服务给别的服务。
+      register-with-eureka: false #是否开启注册服务，因为这里如果为true表示自己注册自己，而自己就是一个服务注册方，没必要自己注册自己
+  instence: #Eureka实例名，集群中根据这里相互识别
+    hostname: eureka #定义euraka示例的名称
+
+
+  spring:
+    datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?serverTimezone=GMT
+      username: root
+      password: root
+  mybatis:
+    mapper-locations: classpath:com/wei/euraka/mapper/*.xml
+    type-aliases-package: classpath:com.wei.euraka.bo
